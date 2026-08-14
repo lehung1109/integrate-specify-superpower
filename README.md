@@ -181,12 +181,12 @@ Create and maintain the project constitution with these mandatory principles:
 
    Example:
 
-   ```bash
+   `
    git status
    git diff
    git add <intended-files>
    git commit -m "feat: implement user authentication task"
-   ```
+   `
 
    The agent must never use `git add .` or `git commit -a` blindly.
 
@@ -208,12 +208,12 @@ Create and maintain the project constitution with these mandatory principles:
 
    Depending on the project, run:
 
-   ```bash
+   `
    npm test
    npm run lint
    npm run typecheck
    npm run build
-   ```
+   `
 
    Use the project's actual scripts when they differ from these examples.
 
