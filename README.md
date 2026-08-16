@@ -259,6 +259,20 @@ Create and maintain the project constitution with these mandatory principles:
     - Task execution state MUST be recorded and maintained continuously in both `tasks.md` and the linked task `.md` plan file, enabling any subsequent agent session to immediately resume in-progress work and verify completed tasks without       ambiguity.
 
     *Rationale*: Granular plan-linked task files prevent context loss across sessions, ensure verifiable progress tracking, and enforce thorough implementation planning for every individual unit of work.
+
+14. Executing-Plans Workflow Compliance During Implementation
+    Whenever executing tasks or phases via `speckit-implement` (or any implementation workflow), the execution MUST strictly adhere to the `executing-plans` skill workflow:
+    - **Step 1 (Load & Review)**: Load the master plan and the specific linked task plan (`specs/.../tasks/*-plan.md`), review all steps critically, ensure workspace isolation, and resolve any ambiguities before modifying code.
+    - **Step 2 (Incremental Task Execution)**:
+      1. Mark task as in-progress (`[/]`).
+      2. Follow every step in the linked plan exactly.
+      3. Apply Test-Driven Development (TDD) where applicable (write failing test -> minimal code -> pass test -> refactor).
+      4. Run exact verification commands specified in the plan.
+      5. Mark task as completed (`[x]`) in both `tasks.md` and the task plan file.
+    - **Step 3 (Stop on Blockers)**: STOP immediately if a blocker occurs (missing dependency, test failure, unclear instruction) and ask for clarification rather than guessing.
+    - **Step 4 (Completion & Finishing)**: Announce completion using the `finishing-a-development-branch` workflow and verify all quality gates prior to reporting completion.
+    
+    *Rationale*: Strict execution discipline prevents regressions, eliminates guesswork, and guarantees reproducible, verifiable delivery across every task.
 ```
 
 ## Recommended Development Flow
