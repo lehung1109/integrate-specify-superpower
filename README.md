@@ -251,6 +251,14 @@ Create and maintain the project constitution with these mandatory principles:
 
     Do not claim that code works, tests pass, or a task is complete unless the
     corresponding command has been executed successfully in the current state.
+
+13. Task-Level Planning & Plan-Linked Progress Tracking
+    Whenever tasks are generated or decomposed (via `speckit-tasks` or task decomposition workflows), each task MUST utilize the `writing-plans` agent skill to author a structured, actionable implementation plan stored in a dedicated `.md`       plan file.
+    - Each task in `tasks.md` MUST explicitly link and reference its corresponding `.md` plan file path.
+    - Each plan file MUST outline the required files, code modifications, test steps, verification commands, and granular task checklists (`- [ ]`, `- [/]`, `- [x]`).
+    - Task execution state MUST be recorded and maintained continuously in both `tasks.md` and the linked task `.md` plan file, enabling any subsequent agent session to immediately resume in-progress work and verify completed tasks without       ambiguity.
+
+    *Rationale*: Granular plan-linked task files prevent context loss across sessions, ensure verifiable progress tracking, and enforce thorough implementation planning for every individual unit of work.
 ```
 
 ## Recommended Development Flow
