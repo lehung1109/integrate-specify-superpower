@@ -288,12 +288,7 @@ brainstorming
 → speckit.plan
 → speckit.tasks
 → speckit.analyze
-→ executing-plans
-→ test-driven-development
-→ code-review
-→ verification
-→ commit
-→ finishing-a-development-branch
+→ speckit-implement
 ```
 
 Spec Kit provides the specification and planning stages, while Superpowers
