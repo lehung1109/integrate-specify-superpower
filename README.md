@@ -154,6 +154,9 @@ Create and maintain the project constitution with these mandatory principles:
    - Files changed.
    - Known limitations.
    - Recommended next phase.
+   - **Explicitly ask the user if they wish to create a Git commit** for the verified phase changes BEFORE ending the conversation turn or advancing to the next phase.
+   - If user approves: stage only intended files (`git add <files>`) and execute a Conventional Commit.
+   - If user declines or defers: maintain working tree state and proceed according to user instructions.
 
 7. Commit policy
 
