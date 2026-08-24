@@ -117,7 +117,16 @@ decomposition standards when generating `tasks.md`. Every phase generated in
    - Once all tasks in the phase are verified and the review loop confirms zero
      bugs, all phase changes MUST be committed with a descriptive conventional
      commit message.
-6. **Task Specification Quality**:
+6. **Final Feature-Level Review Phase**:
+   - The final phase in `tasks.md` MUST be dedicated entirely to a holistic,
+     feature-level review encompassing all previous phases.
+   - A subagent MUST be spawned to conduct a comprehensive bug hunt and
+     integration review across the entire implemented feature.
+   - Any bugs found MUST be fixed, followed by another review subagent execution,
+     repeating this cycle until zero bugs remain across the entire feature.
+   - Once the final review loop confirms zero bugs, a final comprehensive commit
+     MUST be made to finalize the feature implementation.
+7. **Task Specification Quality**:
    - Every task MUST specify exact file paths for all files to be created or
      modified (vague references are prohibited).
    - Every task MUST include complete code or detailed pseudocode, not high-level
@@ -128,10 +137,10 @@ decomposition standards when generating `tasks.md`. Every phase generated in
      dependencies without declaring them first is prohibited.
    - The spec (`spec.md`) and plan (`plan.md`) MUST both be read before
      generating tasks; partial context generation is prohibited.
-   - All above phase workflow requirements (worktree evaluation in Phase 1,
-     subagent execution, TDD steps, iterative review subagent loop, and
-     phase-end commit) MUST be explicitly listed as actionable checklist items
-     in each phase of `tasks.md`.
+   - All phase workflow requirements (worktree creation in Phase 1, subagent
+     execution, TDD steps, iterative review subagent loop, phase-end commit,
+     and the final feature-level review phase) MUST be explicitly listed as
+     actionable checklist items in `tasks.md`.
 ```
 
 ## Recommended Development Flow
