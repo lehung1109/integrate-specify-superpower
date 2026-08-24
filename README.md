@@ -93,9 +93,11 @@ The `speckit-tasks` agent skill MUST follow rigorous planning and phase-level
 decomposition standards when generating `tasks.md`. Every phase generated in
 `tasks.md` MUST explicitly list and incorporate the following requirements:
 
-1. **Phase 1 Worktree Evaluation**:
-   - Phase 1 MUST evaluate whether to use git worktrees or workspace branching
-     for workspace isolation before starting implementation tasks.
+1. **Phase 1 Worktree Creation**:
+   - Phase 1 MUST prioritize creating a new git worktree for workspace isolation
+     before starting implementation tasks.
+   - It MUST ask the user to confirm the creation of the new worktree, defaulting
+     to creating a new one.
 2. **Dedicated Subagent Execution per Phase**:
    - Each phase MUST be executed within a dedicated subagent session to maintain
      clean context boundaries and isolated task execution.
