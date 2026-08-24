@@ -95,7 +95,7 @@ Create and maintain the project constitution with these mandatory principles:
    technical plan, and task list. Do not implement undefined requirements.
 
 2. The speckit-implement agent skill needs to follow the Superpowers workflow:
-    - using-git-worktrees - Activates when the agent skill starts. Creates an isolated workspace on a new branch, runs project setup, verifies clean test baseline.
+    - using-git-worktrees - Activates when the speckit-implement agent skill starts. Creates an isolated workspace on a new branch, runs project setup, verifies clean test baseline.
     - subagent-driven-development or executing-plans - Activates when start implement phase in `tasks.md`. Dispatches fresh subagent per task with two-stage review (spec compliance, then code quality), or executes in batches with human checkpoints.
     - test-driven-development - Activates during implementation. Enforces RED-GREEN-REFACTOR: write failing test, watch it fail, write minimal code, watch it pass, commit. Deletes code written before tests.
     - requesting-code-review - Activates between phases in `tasks.md`. Reviews against plan, reports issues by severity. Critical issues block progress.
