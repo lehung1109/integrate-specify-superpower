@@ -94,14 +94,13 @@ Create and maintain the project constitution with these mandatory principles:
    Every implementation must be based on an approved specification,
    technical plan, and task list. Do not implement undefined requirements.
 
-2. Superpowers workflow is mandatory
-
-   The speckit-implement agens kill need to follow the Superpowers workflow:
-    - using-git-worktrees - Activates when agent skill starts. Creates isolated workspace on new branch, runs project setup, verifies clean test baseline.
+2. The speckit-implement agent skill needs to follow the Superpowers workflow:
+    - using-git-worktrees - Activates when the agent skill starts. Creates an isolated workspace on a new branch, runs project setup, verifies clean test baseline.
     - subagent-driven-development or executing-plans - Activates when start implement phase in `tasks.md`. Dispatches fresh subagent per task with two-stage review (spec compliance, then code quality), or executes in batches with human checkpoints.
     - test-driven-development - Activates during implementation. Enforces RED-GREEN-REFACTOR: write failing test, watch it fail, write minimal code, watch it pass, commit. Deletes code written before tests.
-    - requesting-code-review - Activates between phase in `tasks.md`. Reviews against plan, reports issues by severity. Critical issues block progress.
-    - finishing-a-development-branch - Activates when tasks complete. Verifies tests, presents options (merge/PR/keep/discard), cleans up worktree.
+    - requesting-code-review - Activates between phases in `tasks.md`. Reviews against plan, reports issues by severity. Critical issues block progress.
+    - finishing-a-development-branch - Activates when tasks are complete. Verifies tests, presents options (merge/PR/keep/discard), cleans up worktree.
+3. The speckit-tasks agent skill needs to follow the writing-plans agent skill for exact file paths, complete code, and verification steps
 ```
 
 ## Recommended Development Flow
