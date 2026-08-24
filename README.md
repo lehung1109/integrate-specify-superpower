@@ -87,20 +87,49 @@ Start the AI coding agent in the project directory and run:
 Use the following project constitution:
 
 ```text
-Create and maintain the project constitution with these mandatory principles:
+Task Generation Standards
 
-1. Spec-driven development
+The `speckit-tasks` agent skill MUST follow rigorous planning and phase-level
+decomposition standards when generating `tasks.md`. Every phase generated in
+`tasks.md` MUST explicitly list and incorporate the following requirements:
 
-   Every implementation must be based on an approved specification,
-   technical plan, and task list. Do not implement undefined requirements.
-
-2. The speckit-implement agent skill needs to follow the Superpowers workflow:
-    - using-git-worktrees - Activates when the speckit-implement agent skill starts. Creates an isolated workspace on a new branch, runs project setup, verifies clean test baseline.
-    - subagent-driven-development or executing-plans - Activates when start implement phase in `tasks.md`. Dispatches fresh subagent per task with two-stage review (spec compliance, then code quality), or executes in batches with human checkpoints.
-    - test-driven-development - Activates during implementation. Enforces RED-GREEN-REFACTOR: write failing test, watch it fail, write minimal code, watch it pass, commit. Deletes code written before tests.
-    - requesting-code-review - Activates between phases in `tasks.md`. Reviews against plan, reports issues by severity. Critical issues block progress.
-    - finishing-a-development-branch - Activates when tasks are complete. Verifies tests, presents options (merge/PR/keep/discard), cleans up worktree.
-3. The speckit-tasks agent skill needs to follow the writing-plans agent skill for exact file paths, complete code, and verification steps
+1. **Phase 1 Worktree Evaluation**:
+   - Phase 1 MUST evaluate whether to use git worktrees or workspace branching
+     for workspace isolation before starting implementation tasks.
+2. **Dedicated Subagent Execution per Phase**:
+   - Each phase MUST be executed within a dedicated subagent session to maintain
+     clean context boundaries and isolated task execution.
+3. **Mandatory Test-Driven Development (TDD)**:
+   - Implementation tasks within each phase MUST strictly follow TDD
+     (Red-Green-Refactor): write a failing test first, verify failure, implement
+     minimal code to make it pass, and refactor while maintaining green tests.
+4. **Iterative Review & Bug Hunt Subagent Loop**:
+   - At the end of each phase, a dedicated subagent MUST be spawned to conduct
+     thorough code review, spec compliance verification, and bug hunting.
+   - If any bugs or discrepancies are found, they MUST be resolved immediately.
+   - After resolving identified issues, another review subagent MUST be spawned
+     to re-evaluate and hunt for remaining bugs.
+   - This cycle (Review Subagent → Fix Bugs → Re-review Subagent) MUST repeat
+     iteratively until zero bugs remain.
+5. **Phase-End Commit**:
+   - Once all tasks in the phase are verified and the review loop confirms zero
+     bugs, all phase changes MUST be committed with a descriptive conventional
+     commit message.
+6. **Task Specification Quality**:
+   - Every task MUST specify exact file paths for all files to be created or
+     modified (vague references are prohibited).
+   - Every task MUST include complete code or detailed pseudocode, not high-level
+     summaries.
+   - Every task MUST include explicit verification steps (exact test commands,
+     expected outputs, or acceptance criteria).
+   - Tasks MUST be ordered by dependency; referencing unbuilt upstream
+     dependencies without declaring them first is prohibited.
+   - The spec (`spec.md`) and plan (`plan.md`) MUST both be read before
+     generating tasks; partial context generation is prohibited.
+   - All above phase workflow requirements (worktree evaluation in Phase 1,
+     subagent execution, TDD steps, iterative review subagent loop, and
+     phase-end commit) MUST be explicitly listed as actionable checklist items
+     in each phase of `tasks.md`.
 ```
 
 ## Recommended Development Flow
