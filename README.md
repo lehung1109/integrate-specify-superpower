@@ -109,13 +109,11 @@ Use the following sequence for each feature:
 
 ```text
 brainstorming
-→ using-git-worktrees
-→ speckit.constitution
+→ speckit.constitution(if needed)
 → speckit.specify
 → speckit.clarify
 → speckit.plan
 → speckit.tasks
-→ speckit.analyze
 → speckit-implement
 ```
 
