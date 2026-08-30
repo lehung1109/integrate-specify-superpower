@@ -153,7 +153,7 @@ decomposition standards when generating `tasks.md`. Every phase generated in
      minimal code to make it pass, and refactor while maintaining green tests.
 4. **Iterative Review & Bug Hunt Subagent Loop**:
    - At the end of each phase, a dedicated subagent MUST be spawned to conduct
-     thorough code review, spec compliance verification, and bug hunting.
+     thorough code review, verify eslint, spec compliance verification, and bug hunting.
    - If any bugs or discrepancies are found, they MUST be resolved immediately.
    - After resolving identified issues, another review subagent MUST be spawned
      to re-evaluate and hunt for remaining bugs.
